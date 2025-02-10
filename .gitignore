@@ -1,0 +1,95 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.venv/
+env/
+ENV/
+
+# Dependency files
+Pipfile
+Pipfile.lock
+poetry.lock
+requirements.txt
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Logs and local environment files
+*.log
+*.out
+*.err
+*.pid
+*.seed
+*.state
+*.bak
+*.swp
+.DS_Store
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Editor & IDE settings
+.vscode/
+.idea/
+*.iml
+
+# PyCharm
+*.pyc
+*.pyo
+*.pyd
+.mypy_cache/
+.pytest_cache/
+
+# System-specific
+Thumbs.db
+Desktop.ini
+
+# Docker files
+docker-compose.override.yml
+.dockerignore
+
+# FastAPI / Gunicorn / Uvicorn logs
+gunicorn.log
+gunicorn.access.log
+gunicorn.error.log
+
+# SQLite database
+*.sqlite3
+*.db
+
+# Secrets & Environment Variables
+.env
+.env.local
+*.key
+*.pem
+secrets.json
+
+# Node.js / frontend (if applicable)
+node_modules/
+*.tsbuildinfo
+package-lock.json
+yarn.lock
+
+# AWS / Cloud-specific
+.aws/
+.terraform/
