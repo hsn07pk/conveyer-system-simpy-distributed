@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: client
-        image: your-registry/client:latest  # Replace with your image
+        image: client:latest  # Adjust based on your setup
+        imagePullPolicy: Never
         env:
         - name: KAFKA_BOOTSTRAP_SERVERS
           value: "kafka:9092"

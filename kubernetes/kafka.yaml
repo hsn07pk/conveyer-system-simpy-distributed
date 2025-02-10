@@ -19,9 +19,11 @@ spec:
         - name: KAFKA_CFG_LISTENERS
           value: PLAINTEXT://:9092
         - name: KAFKA_CFG_ADVERTISED_LISTENERS
-          value: PLAINTEXT://kafka:9092
+          value: PLAINTEXT://kafka.default.svc.cluster.local:9092
         - name: KAFKA_CFG_ZOOKEEPER_CONNECT
           value: zookeeper:2181
+        - name: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
+          value: "PLAINTEXT:PLAINTEXT"
         ports:
         - containerPort: 9092
 ---
@@ -34,36 +36,4 @@ spec:
     app: kafka
   ports:
     - port: 9092
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: zookeeper
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: zookeeper
-  template:
-    metadata:
-      labels:
-        app: zookeeper
-    spec:
-      containers:
-      - name: zookeeper
-        image: bitnami/zookeeper:3.9
-        env:
-        - name: ALLOW_ANONYMOUS_LOGIN
-          value: "yes"
-        ports:
-        - containerPort: 2181
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: zookeeper
-spec:
-  selector:
-    app: zookeeper
-  ports:
-    - port: 2181
+      targetPort: 9092
