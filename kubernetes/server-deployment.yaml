@@ -1,0 +1,28 @@
+# File: kubernetes/server-deployment.yaml  
+apiVersion: apps/v1  
+kind: Deployment  
+metadata:  
+  name: server  
+spec:  
+  replicas: 3  
+  selector:  
+    matchLabels:  
+      app: server  
+  template:  
+    metadata:  
+      labels:  
+        app: server  
+    spec:  
+      containers:  
+      - name: server  
+        image: server:latest  
+        ports:  
+        - containerPort: 50051  # gRPC  
+        - containerPort: 8000   # Prometheus metrics  
+        resources:  
+          requests:  
+            cpu: "100m"  
+            memory: "128Mi"  
+          limits:  
+            cpu: "500m"  
+            memory: "256Mi"  
