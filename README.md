@@ -195,4 +195,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 
 Muhammad Hassan Sohail - [@LinkedIn](https://www.linkedin.com/in/mhassan-sohail/)
-Project Link: [https://github.com/yourusername/conveyor-system-simulation](https://github.com/hsn07pk/conveyor-system-simulation)
+Project Link: [https://github.com/hsn07pk/conveyor-system-simulation](https://github.com/hsn07pk/conveyor-system-simulation)
