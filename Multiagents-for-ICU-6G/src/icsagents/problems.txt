@@ -1,0 +1,76 @@
+
+
+problems:
+  - id: 1
+    title: "State Space and Sensor Readings"
+    points: 20
+    description: >
+      Consider the state space X = R^3. There are two beacons:
+      - b1 = (0, 0, 0)
+      - b2 = (0, 0, 6)
+      Sensors h1 and h2 measure the Euclidean distance from a point x = (x1, x2, x3) to each beacon.
+      - h1(x) = ||x - b1||
+      - h2(x) = ||x - b2||
+    tasks:
+      - part: a
+        question: "What are the preimages for each sensor?"
+      - part: b
+        question: "Compute the sensor readings y1 and y2 at x = (6, 0, 0)."
+      - part: c
+        question: >
+          Given observations (y1, y2) = (3, sqrt(45)), describe the preimages h^(-1)(y1) and h^(-1)(y2),
+          and their intersection, representing the set of all states that could have produced these observations.
+
+  - id: 2
+    title: "Adding a Third Sensor"
+    points: 20
+    description: >
+      A third sensor h3(x) is introduced, which measures the first coordinate of x:
+      - h3(x) = x1, where x = (x1, x2, x3)
+    tasks:
+      - part: a
+        question: "What does the triangulation of the observations (y1, y2, y3) yield?"
+      - part: b
+        question: "Based on these three sensor readings, can we uniquely determine the state x?"
+
+  - id: 3
+    title: "Preimages of an IMU"
+    points: 20
+    description: >
+      An Inertial Measurement Unit (IMU) has a three-axis accelerometer that reports linear acceleration
+      in three canonical directions. The state space X = R^9 consists of:
+      - 3D position (x1, x2, x3)
+      - 3D velocity (v1, v2, v3)
+      - 3D acceleration (a1, a2, a3)
+    tasks:
+      - part: a
+        question: "What are the preimages for this IMU sensor? Explain how the measured acceleration maps to different states in X = R^9."
+
+  - id: 4
+    title: "Time Difference of Arrival (TDOA)"
+    points: 20
+    description: >
+      The state space is X = R^2. Two towers are located at (-2,0) and (2,0) and emit a synchronized sound pulse.
+      A sensor records the time difference of arrival (TDOA) of the pulses. The signal propagation speed is known and constant.
+    tasks:
+      - part: a
+        question: "Explain geometrically why the preimage of each TDOA observation is a hyperbola in the xy-plane."
+      - part: b
+        question: >
+          Show that the preimage of a TDOA observation satisfies the hyperbola equation:
+          (x^2 / a^2) - (y^2 / b^2) = 1 for some a, b in R.
+
+  - id: 5
+    title: "Probabilistic Sensor Modeling"
+    points: 20
+    description: >
+      (20 pts) Suppose that you are given a sensor that outputs an approximate distance
+to a radio tower based on signal strength. Let X = R
+2 be the state space and assume
+that the tower is located at (0, 0). You are allowed to try out the sensor at different
+locations to test its functioning. How would you build a probabilistic model of the
+sensor behavior, in other words, how would you determine a formula for p(y | x),
+in which x can be any fixed location of the sensor, and y is the corresponding
+observation? State your reasoning clearly. Explain in detail the assumptions about
+the probability distributions that you would make and the types of experiments that
+you would perform.
