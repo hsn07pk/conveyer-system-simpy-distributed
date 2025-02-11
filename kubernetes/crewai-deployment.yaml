@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crewai-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crewai-app
+  template:
+    metadata:
+      labels:
+        app: crewai-app
+    spec:
+      containers:
+      - name: crewai-container
+        image: crewai-app:latest  # Ensure you push the image to a registry
+        env:
+        - name: OLLAMA_API_BASE
+          value: "http://ollama-service:11434"
+        ports:
+        - containerPort: 5000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 60
