@@ -6,23 +6,20 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: crewai-app
+      app: crewai
   template:
     metadata:
       labels:
-        app: crewai-app
+        app: crewai
     spec:
       containers:
-      - name: crewai-container
-        image: crewai-app:latest  # Ensure you push the image to a registry
-        env:
-        - name: OLLAMA_API_BASE
-          value: "http://ollama-service:11434"
-        ports:
-        - containerPort: 5000
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 5000
-          initialDelaySeconds: 30
-          periodSeconds: 60
+        - name: crewai
+          image: crewai:latest  # Using locally built image
+          imagePullPolicy: Never  # Prevent Kubernetes from pulling from Docker Hub
+          ports:
+            - containerPort: 5000
+          env:
+            - name: OLLAMA_API_BASE
+              value: "http://ollama:11434"
+          command: ["python3", "api.py"]
+      restartPolicy: Always  # Ensures the container restarts if it crashes

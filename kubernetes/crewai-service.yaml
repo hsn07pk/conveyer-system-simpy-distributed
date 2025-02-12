@@ -1,12 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: crewai-service
+  name: crewai
 spec:
   selector:
-    app: crewai-app
+    app: crewai
   ports:
     - protocol: TCP
       port: 5000
       targetPort: 5000
-  type: ClusterIP
